@@ -97,21 +97,26 @@ public:
         delete temp;
     }
 
-
+    // delete_pos function. deletes a node at the parameter position
     void delete_pos(int pos) {
+        // if the head is nullptr, display error message and return
         if (!head) {
             cout << "List is empty." << endl;
             return;
         }
     
+        // if the position is the first node, calls the pop_front fucntion and returns
         if (pos == 1) {
             pop_front();
             return;
         }
     
+        // creates a temporary node equated to head
         Node* temp = head;
     
+        // goes through the linked list to find the node at the parameter position
         for (int i = 1; i < pos; i++){
+            // if the position doesn't exist in the list, displays an error message and returns
             if (!temp) {
                 cout << "Position doesn't exist." << endl;
                 return;
@@ -124,6 +129,7 @@ public:
             return;
         }
     
+        // if the parameter position is the last node in the list, calls the pop_back function and returns
         if (!temp->next) {
             pop_back();
             return;
