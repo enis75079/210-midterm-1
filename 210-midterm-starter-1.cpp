@@ -256,11 +256,14 @@ public:
         cout << endl;
     }
 
+    // every_other_element function. outputs every other node in the list
     void every_other_element() {
         Node* current = head;
-        if (!current) {
-            cout << "List is empty." << endl;
-            return
+        while (current) {
+            cout << current->data << " ";
+            current = current->next;
+        }
+        cout << endl;
 
     }
 };
@@ -268,5 +271,12 @@ public:
 // main function
 int main() {
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
+
+    DoublyLinkedList list;
+    int size = 5;
+    for (int i = 0; i < size; i++) {
+        list.push_front((rand() % 5)+1);
+    }
+    list.print();
     return 0;
 }
