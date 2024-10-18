@@ -255,6 +255,14 @@ public:
         }
         cout << endl;
     }
+
+    void every_other_element() {
+        Node* current = head;
+        if (!current) {
+            cout << "List is empty." << endl;
+            return
+
+    }
 };
 
 // main function
