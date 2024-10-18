@@ -238,12 +238,17 @@ public:
         cout << endl;
     }
 
+    // print_reverse function. similar to print function except print_reverse starts at the tail of the list and works its way backwards
     void print_reverse() {
+        // creates a node assigned to tail
         Node* current = tail;
+        // if the list is empty, returns
         if (!current) { 
             cout << "List is empty." << endl;
             return;
         }
+
+        // outputs the current node's value and points to the previous node
         while (current) {
             cout << current->data << " ";
             current = current->prev;
@@ -252,9 +257,8 @@ public:
     }
 };
 
+// main function
 int main() {
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
-
-    
     return 0;
 }
