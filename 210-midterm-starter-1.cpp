@@ -42,16 +42,19 @@ public:
             return;
         }
 
+        // creates a temporary node to search list of the parameter position
         Node* temp = head;
         for (int i = 0; i < position && temp; ++i)
             temp = temp->next;
 
+        // if the parameter position exceeds the size of the linked list, output error message and returns the function
         if (!temp) {
             cout << "Position exceeds list size. Node not inserted.\n";
             delete newNode;
             return;
         }
 
+        // inserts the node after the parameter position
         newNode->next = temp->next;
         newNode->prev = temp;
         if (temp->next)
