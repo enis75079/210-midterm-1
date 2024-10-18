@@ -275,15 +275,13 @@ int main() {
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
 
     DoublyLinkedList list;
-    int size = ((rand() % MAX_LS) + MIN_LS);
-    int randNum = ((rand() % MAX_NR) + MIN_NR);
-    for (int i = 0; i < size; i++) {
-        list.push_back(randNum);
-    }
+
+    list.push_back(1);
+    list.push_back(2);
+    list.push_back(3);
+    list.push_back(4);
+    list.push_back(5);
 
     list.print();
-    cout << endl;
-    list.every_other_element();
-    cout << endl;
     return 0;
 }
