@@ -12,7 +12,7 @@ private:
         Node* prev; // pointer that points to a previous node in the linked list
         Node* next; // pointer that points to a node ahead in the linked list
 
-        // parameterized constructor 
+        // parameterized constructor initializing a value for data and assigning prev and next with empty pointers
         Node(int val, Node* p = nullptr, Node* n = nullptr) {
             data = val; 
             prev = p;
@@ -20,18 +20,22 @@ private:
         }
     };
 
-    Node* head;
-    Node* tail;
+    Node* head; // pointer for the first node in the linked list
+    Node* tail; // pointer for the last node in the linked list
 
 public:
+    // default constructor initialzing head and tail as an empty list
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
 
+    // insert_after function. takes in a value as well as a position. purpose is to add a node after the specific position with the parameter value
     void insert_after(int value, int position) {
+        // if user enters a position that doesn't exist (position is less than 0)
         if (position < 0) {
             cout << "Position must be >= 0." << endl;
             return;
         }
 
+        // creates a node with the parameter value
         Node* newNode = new Node(value);
         if (!head) {
             head = tail = newNode;
