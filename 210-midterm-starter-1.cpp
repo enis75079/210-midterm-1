@@ -58,36 +58,45 @@ public:
         newNode->next = temp->next;
         newNode->prev = temp;
 
-        // if the next node in the linked list is not nullptr, 
+        // if the next node in the linked list is not nullptr, have temp->next point to newNode
         if (temp->next)
             temp->next->prev = newNode;
         else
+            // the last node of the linked lsit becomes newNode
             tail = newNode;
         temp->next = newNode;
     }
 
+    // delete_val function. goes through the linked list and deletes the first node that has the parameter value.
     void delete_val(int value) {
-        if (!head) return;
+        if (!head) return; // returns function if there head is nullptr
 
+        // creates a temporary node at the first node in the linked list
         Node* temp = head;
         
+        // while the temp node doesn't have the parameter value
         while (temp && temp->data != value)
             temp = temp->next;
 
-        if (!temp) return; 
+        if (!temp) return; // if the value doesn't exist in the linked list
 
+        // changes the other nodes in the linked list to compensate for the deleted node
         if (temp->prev)
             temp->prev->next = temp->next;
         else
+            // if the head was the deleted node, assigns the node after head to head
             head = temp->next; 
 
         if (temp->next)
             temp->next->prev = temp->prev;
         else
+            // if the tail was the deleted node, assigns the node before it to tail
             tail = temp->prev; 
-
+        
+        // deletes the temp node
         delete temp;
     }
+
 
     void delete_pos(int pos) {
         if (!head) {
