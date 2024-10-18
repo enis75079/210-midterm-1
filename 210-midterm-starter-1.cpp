@@ -135,25 +135,33 @@ public:
             return;
         }
     
+        // removes temp from the list by linking temp's prev and next nodes the tempPrev, then deletes temp
         Node* tempPrev = temp->prev;
         tempPrev->next = temp->next;
         temp->next->prev = tempPrev;
         delete temp;
     }
 
+    // push_back function. adds a new node with the parameter value at the end of the linked list
     void push_back(int v) {
+        // creates a new node with the parameter value
         Node* newNode = new Node(v);
+        // if the linked list is empty, assigns both head and tail to newNode
         if (!tail)
             head = tail = newNode;
         else {
+            // assigns newNode as the new tail
             tail->next = newNode;
             newNode->prev = tail;
             tail = newNode;
         }
     }
     
+    // push_front function. adds a new node to head, replacing current head
     void push_front(int v) {
+        // creates a new node with the parameter value
         Node* newNode = new Node(v);
+        // if the linked list is empty, assigns both head and tail to newNode
         if (!head)
             head = tail = newNode;
         else {
