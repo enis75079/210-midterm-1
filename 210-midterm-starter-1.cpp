@@ -150,7 +150,7 @@ public:
         if (!tail)
             head = tail = newNode;
         else {
-            // assigns newNode as the new tail
+            // tail points to the new node
             tail->next = newNode;
             newNode->prev = tail;
             tail = newNode;
@@ -165,14 +165,15 @@ public:
         if (!head)
             head = tail = newNode;
         else {
+            // head points to the new node
             newNode->next = head;
             head->prev = newNode;
             head = newNode;
         }
     }
     
+    // pop_front function. deletes current head from the list
     void pop_front() {
-
         if (!head) {
             cout << "List is empty." << endl;
             return;
@@ -180,15 +181,18 @@ public:
 
         Node * temp = head;
 
+        // if the list contains more nodes than just head, updates head pointer and nodes following it
         if (head->next) {
             head = head->next;
             head->prev = nullptr;
         }
+        // if the list is empty, assigns head and tail to nullptr
         else
             head = tail = nullptr;
         delete temp;
     }
 
+    // pop_back function. deletes the current tail from the list
     void pop_back() {
         if (!tail) {
             cout << "List is empty." << endl;
@@ -196,10 +200,12 @@ public:
         }
         Node * temp = tail;
 
+        // if the list contains more than just the tail node, previous node from tail becomes the new tail
         if (tail->prev) {
             tail = tail->prev;
             tail->next = nullptr;
         }
+        // if the list is empty, assigns head and tail to nullptr
         else
             head = tail = nullptr;
         delete temp;
