@@ -262,7 +262,8 @@ public:
         Node* current = head;
         while (current) {
             cout << current->data << " ";
-            current = current->next;
+            //points to the next next node
+            current = current->next->next;
         }
         cout << endl;
 
