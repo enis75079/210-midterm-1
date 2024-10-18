@@ -57,6 +57,8 @@ public:
         // inserts the node after the parameter position
         newNode->next = temp->next;
         newNode->prev = temp;
+
+        // if the next node in the linked list is not nullptr, 
         if (temp->next)
             temp->next->prev = newNode;
         else
