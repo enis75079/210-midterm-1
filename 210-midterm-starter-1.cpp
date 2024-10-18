@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
@@ -270,13 +271,19 @@ public:
 
 // main function
 int main() {
+    srand(time(0));
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
 
     DoublyLinkedList list;
-    int size = 5;
+    int size = ((rand() % MAX_LS) + MIN_LS);
+    int randNum = ((rand() % MAX_NR) + MIN_NR);
     for (int i = 0; i < size; i++) {
-        list.push_front((rand() % 5)+1);
+        list.push_back(randNum);
     }
+
     list.print();
+    cout << endl;
+    list.every_other_element();
+    cout << endl;
     return 0;
 }
