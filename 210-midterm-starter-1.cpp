@@ -211,6 +211,7 @@ public:
         delete temp;
     }
 
+    // destructor for DoublyLinkedList class. deletes all nodes from the current list starting with head
     ~DoublyLinkedList() {
         while (head) {
             Node* temp = head;
@@ -218,12 +219,18 @@ public:
             delete temp;
         }
     }
+
+    // print function. goes through a list and prints the value stored in the current node
     void print() {
+        // creates a node assigned to head
         Node* current = head;
+        // if the list is empty, returns
         if (!current) {
             cout << "List is empty." << endl;
             return;
         }
+
+        // outputs the current node's value and points to the next node
         while (current) {
             cout << current->data << " ";
             current = current->next;
