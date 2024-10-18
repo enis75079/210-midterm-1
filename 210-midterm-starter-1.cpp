@@ -3,12 +3,16 @@ using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 
+// creates class doubly linked list
 class DoublyLinkedList {
 private:
+    // node structure in doubly linked list
     struct Node {
-        int data;
-        Node* prev;
-        Node* next;
+        int data; // data value in node
+        Node* prev; // pointer that points to a previous node in the linked list
+        Node* next; // pointer that points to a node ahead in the linked list
+
+        // parameterized constructor 
         Node(int val, Node* p = nullptr, Node* n = nullptr) {
             data = val; 
             prev = p;
