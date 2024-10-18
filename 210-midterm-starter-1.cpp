@@ -271,17 +271,28 @@ public:
 
 // main function
 int main() {
+    // to have new random numbers every compile
     srand(time(0));
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
 
+    // creates a doubly linked list object
     DoublyLinkedList list;
+    // creates a random size for the linked list
+    int size = ((rand() % ((MAX_LS - MIN_LS)+1)) + MIN_LS);
+    // calls push_back function to add nodes to the list
+    for (int i = 0; i < size; i++) {
+        // creates a random number to store into the current node
+        int randNum = ((rand() % ((MAX_NR - MIN_NR)+1)) + MIN_NR);
+        list.push_back(randNum);
+    }
 
-    list.push_back(1);
-    list.push_back(2);
-    list.push_back(3);
-    list.push_back(4);
-    list.push_back(5);
-
+    // outputs original list
     list.print();
+    cout << endl;
+
+    // beginning from the first node, outputs every other node in the list
+    list.every_other_element();
+    cout << endl;
+
     return 0;
 }
